@@ -179,7 +179,7 @@ document.write("</ul>");
 
 /*
   student = {name: ???, age: ???, group:??}
-  серелній вік студенів, наймологдшмй, настарший
+  середній вік студенів, наймолодшмй, настарший
 */
 
 let students=[
@@ -217,7 +217,24 @@ console.log("maxAge=",maxAge(students));
 // }
 
 
+// let shoppingList=[
+//     {title: "Milk", count: 2, bought: true},
+//     {title: "Juice", count: 1, bought: false},
+//     {title: "Apple", count: 5, bought: true},
+//     {title: "Chips", count: 1, bought: false},
+// ]
 
+// function printShoppingList(shopList){
+//     shopList.sort(compareBought);
+//     console.log(shopList);
+// }
+// function compareBought(value1, value2){
+//     if (value1.bought>value2.bought) return -1;
+//     else if(value1.bought<value2.bought) return 1;
+//     else return 0;
+// }
+
+// printShoppingList(shoppingList);
 
 
 
