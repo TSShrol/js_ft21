@@ -42,22 +42,19 @@ marta.showAge();
 
 //Object 
 
-// function Student(firstname, lastname,birthday){
-//     this.firstname=firstname;
-//     this.lastname=lastname;
-//     this.birthday=birthday;
-//     this.showInfo=function(){
-//         console.log(`Student name: ${this.firstname} ${this.lastname}`);
-//     };
-//     this.showAge=function(){
-//         let minusTime=Date.now()-Date.parse(this.birthday);
-//         this.showInfo();
-//         console.log("Has "+Math.round(minusTime/(365*24*60*60*1000))+" years old.");
-//     };    
-// }
-
-
-
+function Student(firstname, lastname,birthday){
+    this.firstname=firstname;
+    this.lastname=lastname;
+    this.birthday=birthday;
+    this.showInfo=function(){
+        console.log(`Student name: ${this.firstname} ${this.lastname}`);
+    };
+    this.showAge=function(){
+        let minusTime=Date.now()-Date.parse(this.birthday);
+        this.showInfo();
+        console.log("Has "+Math.round(minusTime/(365*24*60*60*1000))+" years old.");
+    };    
+}
 
 // let mihajlo=new Student("Mihajlo","Mihalchuk","08/22/2001");
 // console.log(mihajlo);
@@ -282,10 +279,19 @@ class PrintMaсhine {
         this.color = color;
         this.fontFamily = fontFamily;
     };
-    print(text){
+    print(text) {
         document.write(`<p style="color:${this.color}; "> ${text} </p>`);
     }
+    toString(){
+        return `Object of PrintMachine: ${this.fontSize}, ${this.fontFamily} `;
+    }
+
+
+
 }
 
-let exemplaPrintMaсhine=new PrintMaсhine(28,"green","Arial");
+let exemplaPrintMaсhine = new PrintMaсhine(28, "green", "Arial");
 exemplaPrintMaсhine.print("We are learning OOP in JavaScript!");
+console.log(exemplaPrintMaсhine);
+console.log(exemplaPrintMaсhine.toString());
+
