@@ -149,6 +149,7 @@ let text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis ea vo
 let arrTagNews = ["lorem", "ipsum", "text"];
 let news1 = new HtmlPageNews(title, text, arrTagNews, "06/16/2022");
 // news1.print();
+console.log(news1);
 let news2 = new HtmlPageNews(title, text, arrTagNews, "06/10/2022");
 // news2.print();
 let news3 = new HtmlPageNews(title, text, ["script", "js"], "05/25/2022");
@@ -156,6 +157,8 @@ let news3 = new HtmlPageNews(title, text, ["script", "js"], "05/25/2022");
 
 // console.log((Date.now()-Date.parse("06/16/2022"))/(24*60*60*1000));
 // console.log((Date.now()-Date.parse("06/15/2022"))/(24*60*60*1000));
+
+
 
 
 /*
@@ -238,4 +241,3 @@ console.log(lorenNews.findNewsByTag("script"));
 // lorenNews.deleteNews();
 // lorenNews.deleteNews();
 // lorenNews.printNews();
-
