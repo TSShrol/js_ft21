@@ -106,44 +106,223 @@ getHtml().
 // let arr=new Array(4); not create [4]
 // let arr1=new Array(4,5,6,7)   
 
-class ExtentedArray extends Array{
-    constructor(arr=[]){
-        super(...arr);
+// class ExtentedArray extends Array{
+//     constructor(arr=[]){
+//         super(...arr);
+//     }
+//     getString(separator){ // [ilem1; item2; item3...]
+//         let text="[";
+//               // with for parametrs
+//         // for(let i=0; i<this.length; i++){
+//         //     // text+=String(this[i]).concat(separator).concat(" ");
+//         //     text+=this[i]+separator+" ";
+//         // }
+
+//         //with foreach => for of
+//         // this.forEach((item)=>{
+//         //     text+=item+separator+" ";
+//         // });
+
+//         this.forEach(function(item){
+//             text+=item+separator+" ";
+//         });
+//         return text+"]";
+//     }
+
+//     getHtml(tagName=""){
+//         let textHTML="";
+//         this.forEach(item=>{
+//             textHTML+=`<${tagName}>${item}</${tagName}>`;
+//           }); 
+
+//         if(tagName==="li") {
+//             textHTML=`<ul>${textHTML}</ul>`;
+//         }
+//         return textHTML;
+//      }
+// }
+
+
+// let arr1=new ExtentedArray([4,5,8,6]);
+// console.log(arr1.getString(";"));
+// console.log(arr1.getHtml("li"));
+// document.write(arr1.getHtml("li"));
+// console.log(arr1.fill(25,1,5));
+
+// class ExtentedArrayNew extends Array{
+//     static countInstanse=0;
+//     constructor(value){
+//         super(value);
+//         ExtentedArrayNew.countInstanse++;
+//     }
+//     getString(separator){ // [ilem1; item2; item3...]
+//         let text="[";
+
+//        // with foreach => for of
+//         this.forEach((item)=>{
+//             text+=item+separator+" ";
+//         });
+
+//            return text+"]";
+//     }
+
+//     getHtml(tagName=""){
+//         let textHTML="";
+//         this.forEach(item=>{
+//             textHTML+=`<${tagName}>${item}</${tagName}>`;
+//           }); 
+
+//         if(tagName==="li") {
+//             textHTML=`<ul>${textHTML}</ul>`;
+//         }
+//         return textHTML;
+//      }
+
+//      static printCountInstances(){
+//         console.log("Count arr instance equal "+ ExtentedArrayNew.countInstanse);
+//      }
+// }
+
+
+// let arr2=new ExtentedArrayNew(10);
+// console.log(arr2.getString(";"));
+// console.log(arr2.getHtml("p"));
+// document.write(arr2.getHtml("p"));
+// console.log(arr2.fill(Math.round(Math.random()*100)));
+// let arr3=new ExtentedArrayNew(...arr2);
+// console.log(arr3.getString(":"));
+// console.log(arr3.countInstanse);
+// console.log(ExtentedArrayNew.countInstanse);
+// ExtentedArrayNew.printCountInstances();
+// // let arr4=new Array();
+
+/*
+Реалізуйте клас, що описує геометричну фігуру з властивостями та методами:
+■ get-властивість для отримання назви фігури;
+■ метод для виведення інформації про фігуру (сторони та їх довжина);
+■ метод для обчислення площі фігури;
+■ метод для обчислення периметра фігури.
+Реалізуйте класи-спадкоємці: квадрат, прямокутник, трикутник. Перевизначте методи виведення та обчислень у класах-спадкоємцях.
+Створіть масив з різними фігурами та виведіть інформацію про кожну з них, включаючи площу та периметр.
+*/
+
+class Figure{
+    static countFigure=0;
+    #name;
+    constructor(name="Figure"){
+        this.#name=name;
+        Figure.countFigure++;
     }
-    getString(separator){ // [ilem1; item2; item3...]
-        let text="[";
-              // with for parametrs
-        // for(let i=0; i<this.length; i++){
-        //     // text+=String(this[i]).concat(separator).concat(" ");
-        //     text+=this[i]+separator+" ";
-        // }
-
-        //with foreach => for of
-        // this.forEach((item)=>{
-        //     text+=item+separator+" ";
-        // });
-
-        this.forEach(function(item){
-            text+=item+separator+" ";
-        });
-        return text+"]";
+    get name(){
+        return this.#name;
     }
 
-    getHtml(tagName=""){
-        let textHTML="";
-        this.forEach(item=>{
-            textHTML+=`<${tagName}>${item}</${tagName}>`;
-          }); 
+    getInfoFigure(){
+        console.log("Nothing");
+    }
 
-        if(tagName==="li") {
-            textHTML=`<ul>${textHTML}</ul>`;
-        }
-        return textHTML;
-     }
+    getSquare(){
+        return 0;
+    }
+    getPerimetr(){
+        return 0
+    }
+
 }
 
+class Tringle extends Figure{
+    #side1;
+    #side2;
+    #side3;
+    constructor(side1,side2,side3){
+        super("Tringle");   
+        this.side1=side1;     
+        this.side2=side2;
+        this.side3=side3;
+    }
 
-let arr1=new ExtentedArray([4,5,8]);
-console.log(arr1.getString(";"));
-console.log(arr1.getHtml("li"));
-document.write(arr1.getHtml("li"));
+    get side1(){
+        return this.#side1;
+    }
+    set side1(value){
+        this.#side1=value>=0 ? value : 0;
+    }
+    get side2(){
+        return this.#side2;
+    }
+    set side2(value){
+        this.#side2=value>=0 ? value : 0;
+    }
+    get side3(){
+        return this.#side3;
+    }
+    set side3(value){
+        this.#side3=value>=0 ? value : 0;
+    }
+
+    getInfoFigure(){
+        console.log(`Name figure "${this.name}" : \n a=${this.side1} \n b=${this.side2} \n c=${this.side3}`);
+    }
+    getPerimetr(){
+        return this.side1+this.side2+this.side3;
+    }
+    getSquare(){
+        let p=this.getPerimetr();
+        return Math.sqrt(p*(p-this.side1)*(p-this.side2)*(p-this.side3));
+    }
+}
+
+const figure1=new Tringle(4,5,6);
+figure1.getInfoFigure();
+console.log(figure1.getSquare());
+
+//Прямокутник
+class Rictangle extends Figure{
+    #side1;
+    #side2;
+    constructor(side1,side2){
+        super("Rictangle");   
+        this.side1=side1;     
+        this.side2=side2;
+    }
+
+    get side1(){
+        return this.#side1;
+    }
+    set side1(value){
+        this.#side1=value>=0 ? value : 0;
+    }
+    get side2(){
+        return this.#side2;
+    }
+    set side2(value){
+        this.#side2=value>=0 ? value : 0;
+    }
+    
+    getInfoFigure(){
+        console.log(`Name figure "${this.name}" : \n a=${this.side1} \n b=${this.side2}`);
+    }
+    getPerimetr(){
+        return (this.side1+this.side2)*2;
+    }
+
+    getSquare(){
+        return this.side1*this.side2;
+    }
+}
+
+const figure2=new Rictangle(4,7);
+figure2.getInfoFigure();
+console.log(Figure.countFigure);
+
+let arrFigures=[figure1, figure2, new Rictangle(2,5), new Tringle(5,6,8)];
+console.log(arrFigures);
+console.log(Figure.countFigure);
+arrFigures.forEach(function(itemFigure){  //[item1, item2, ...]
+    itemFigure.getInfoFigure();
+    console.log(`Perimetr=${itemFigure.getPerimetr()}; square=${itemFigure.getSquare()}`);
+});
+
+
+
+
