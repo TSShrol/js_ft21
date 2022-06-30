@@ -10,17 +10,40 @@
         // console.log(2+3);
 
     </script>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
+    <div id="d3" onmousemove="findCoords(event)"> </div>
     <!-- <script src="./lesson_day16_OOP_part3.js"></script> -->
     <script>
         document.write("<h2 class=\"textNews\"> First programs in JavaScript</h2>");
     </script>
-    <p class="textNews1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo, tempore architecto? Temporibus, labore accusamus,
-        dolorem necessitatibus nisi aliquam voluptatum voluptas culpa asperiores tempore quod minima et porro quo
-        repudiandae fuga dicta inventore id tempora enim! Et, laborum quam provident, laudantium nobis, earum placeat
-        facere totam deleniti fuga velit reiciendis dolore?</p>
+    <!-- <div id="clickDiv" onclick="alert('Clicked div!'+this)"></div> -->
+    <div id="clickDiv"></div>
+
+    <div id="d1" onmouseenter="outText(`onmouseenter ${this.id}` )" onmouseover="outText(`onmouseover ${this.id}`)">
+        <div id="d2" onmouseenter="outText(`onmouseenter ${this.id}`)" onmouseover="outText(`onmouseover ${this.id}`)">
+        </div>
+    </div>
+    <p id="out">Info text</p>
+
+    <div id="game">
+        <div id="block1"></div>
+        <div id="block2"></div>
+        <div id="block3"></div>
+        <div id="block4"></div>
+    </div>
+    <div id="block5">
+
+    </div>
+    <div id="wrapper">
+        <div id="block6">
+
+        </div>
+    </div>
+
+    <script src="./lesson_day18.js"></script>
     <!-- <script src="./scripts.js"></script> -->
     <!-- <script src="./control_statments.js"></script> -->
     <!-- <script src="./control_cicle.js"></script> -->
@@ -39,7 +62,9 @@
     <!-- <script src="./lesson_day13.js"></script> -->
     <!-- <script src="./lesson_day14_OOP.js"></script> -->
     <!-- <script src="./lesson_day15_OOP_part2.js"></script> -->
-    <script src="./lesson_day17_OOP_part4.js"></script>
+    <!-- <script src="./lesson_day17_OOP_part4.js"></script> -->
+
+
 
 
 
