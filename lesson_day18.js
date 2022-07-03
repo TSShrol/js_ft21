@@ -63,12 +63,21 @@ console.dir(d3);
 //  на якому з верхніх блоків знаходиться вказівник миші. Якщо вказівник не 
 //  знаходиться над одним з верхніх блоків, нижній блок повинен бути сірого коль
 let b1 = document.querySelector("#block1");
-console.dir(b1.style.backgroundColor);
+// console.dir(b1.style.backgroundColor);
 game.onmouseover = function (event) {
-    console.dir(event.target.id);
+    console.dir(event.target);
+    let idBlock=event.target.id;
+    
+    // console.log(event.target.style.backgroundColor);
+    // if (event.target.id == "block1"){
+    //     console.log(event.target.style.backgroundColor);
+    //     block4.style.backgroundColor=event.target.style.backgroundColor;
+    // } else {
+    //     block4.style.backgroundColor = "gray";
+    // }
 
     if (event.target.id == "block1") {
-        block4.style.backgroundColor = "green";
+        // block4.style.backgroundColor = "green";
         block4.style.backgroundColor=window.getComputedStyle(block1).backgroundColor;;
     } else if (event.target.id == "block2") {
         // block4.style.backgroundColor = "yellow";
@@ -108,5 +117,5 @@ window.block5.oncontextmenu=function(){
 document.body.onkeydown=function(e){
     console.dir(e);
 }
-block6.client=100+"px";
-console.dir(block6);
+block6.style.left=200+"px";
+// console.log(block6.getBoundingClientRect().left);
