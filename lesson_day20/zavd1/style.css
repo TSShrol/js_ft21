@@ -1,0 +1,39 @@
+.very_old_grandfather {
+	width: 800px;
+	height: 800px;
+	padding: 20px;
+	/* background: purple; */
+}
+
+.old_grandfather {
+	width: 700px;
+	height: 700px;
+	padding: 20px;
+	background: #000;
+}
+.grandfather {
+	width: 600px;
+	height: 600px;
+	background: #505050;
+}
+.son {
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin-right: 20px;
+	float: left;
+}
+.dougther {
+	width: 200px;
+	height: 200px;
+	background: pink;
+	float: left;
+}
+
+.grandson{
+	width: 100px;
+	height: 100px;
+	margin: 20px auto;
+	background: yellow;
+	
+}

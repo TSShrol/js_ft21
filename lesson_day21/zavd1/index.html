@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* margin: 20px auto; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .slider{
+            border-radius: 5px;
+            background-color: lightgray;
+            width: 300px;
+            height: 20px;
+
+        }
+        .povzunok{
+            width: 30px ;
+            height: 30px;
+            position: relative;
+            background-color: blue;
+            border-radius: 5px;
+            top:50%;
+            transform: translateY(-50%);
+            left: 15px;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="slider">
+        <div class="povzunok"></div>
+    </div>
+    <script>
+        let povzunok=document.querySelector('.povzunok');
+        let slider=document.querySelector('.slider');
+        // console.dir(slider);
+        // console.dir(povzunok.getClientRects());
+        // povzunok.onmousedown=function(event){
+        //     event.preventDefault();
+        //     // console.dir(event.clientX);
+        //     // console.dir(povzunok.offsetLeft);
+        //     console.log(povzunok.getClientRects()[0].left);
+        //     let shiftX=event.clientX-povzunok.getClientRects()[0].left;
+        //     console.log(shiftX);
+        //     document.addEventListener('mousemove',onMouseMove);
+        //     document.addEventListener('mouseup',onMouseUp);
+
+        //     function onMouseMove(event){
+        //         // let newMoveLeft=event.clientX-shiftX-povzunok.offsetLeft;
+        //         let newMoveLeft=event.clientX-shiftX-povzunok.getClientRects()[0].left;
+
+        //         // console.log(newMoveLeft);
+        //         if (newMoveLeft<0){
+        //             newMoveLeft=0;
+        //         }
+                
+        //         let rightMove=slider.offsetWidth-povzunok.offsetWidth
+        //         if(newMoveLeft>rightMove){
+        //             newMoveLeft=rightMove;
+        //         }
+        //         povzunok.style.left=newMoveLeft+"px";
+
+        //     }
+
+        //     function onMouseUp(){
+        //         document.removeEventListener('mousemove',onMouseMove);
+        //         document.removeEventListener('mouseup',onMouseUp);
+        //     }
+
+        //     slider.ondragstart=function(){
+        //         return false;
+        //     }
+        // }
+
+        povzunok.onmousedown=function(event){
+            event.preventDefault();
+            console.log(povzunok.getClientRects()[0].left);
+            let shiftX=event.clientX-povzunok.getClientRects()[0].left;
+            console.log(shiftX);
+            document.addEventListener('mousemove',onMouseMove);
+            // document.addEventListener('mouseup',onMouseUp);
+
+            function onMouseMove(e){
+                // let newMoveLeft=event.clientX-shiftX-povzunok.offsetLeft;
+                let newMoveLeft=e.clientX-shiftX-povzunok.getClientRects()[0].left;
+                // console.log(newMoveLeft);
+                if (newMoveLeft<0){
+                    newMoveLeft=0;
+                }
+                let rightMove=slider.offsetWidth-povzunok.offsetWidth
+                if(newMoveLeft>rightMove){
+                    newMoveLeft=rightMove;
+                }
+                povzunok.style.left=newMoveLeft+"px";
+            }
+            slider.ondragstart=function(){
+                return false;
+            }
+        }
+
+        povzunok.onmouseup=onMouseUp;
+        function onMouseUp(){
+                event.preventDefault();
+                document.removeEventListener('mousemove',onMouseMove);
+                // document.removeEventListener('mouseup',onMouseUp);
+        }
+
+    </script>
+</body>
+</html>
