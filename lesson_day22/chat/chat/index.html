@@ -1,0 +1,138 @@
+</!DOCTYPE html>
+<html>
+<head>
+	<title>Веб-чат</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<!--
+			1. Зверстати шапку
+				1.1. Зробити логотип
+				1.2. Зробити меню
+
+			2. Зверстати ліве меню
+				2.1. Зробити пошук
+				2.2. Зробити список контактів
+
+			3. Зробити переписку із користувачами
+				3.1. Виведення повідомлень
+				3.2. Форма для відправки повідомлень
+			4. Список контактів в модальному вікні
+				4.1. Поле пошуку контактів
+				4.2. Список контактів
+			5. Створення модального вікна авторазації і реєстрації користувача 
+				
+	-->
+	<div id="shapka">
+		<div id="logo">
+			<img src="./images/logo.png">
+			<span><b>IT-talk</b></span>
+		</div>
+		<div id="menu">
+			<a href="#" id="open-contact">Контакти</a>
+			<a href="#">Налаштування</a>
+			<a href="#" id="open-sign">Увійти</a> <!--Вийти-->
+		</div>
+	</div>
+
+	<div id="content">
+		<div id="users">
+			<div id="find">
+				<input type="text" name="text">
+				<button> <img src="./images/find02.png">
+				</button>
+			</div>
+			<div id="listUser">
+				<ul>
+
+				
+				</ul>
+			</div>	
+		</div>		
+		
+		<div id="message">
+			<div id="list-messages">
+				<ul>
+					
+				</ul>
+			</div>
+			<div id="form">
+				<textarea></textarea>
+				<button><img src="./images/send1.png"></button>
+			</div>
+		</div>
+	</div>
+		
+	<div class="modal" id="contacts-modal">
+		<div class="close">X</div>
+		<div class="content">
+			<ul>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+					</div>
+					<h3>Anton</h3>
+				</li>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+					</div>
+					<h3>Anton</h3>
+				</li>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+					</div>
+					<h3>Anton</h3>
+				</li>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+					</div>
+					<h3>Anton</h3>
+				</li>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+					</div>
+					<h3>Anton</h3>
+				</li>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+					</div>
+					<h3>Anton</h3>
+				</li>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+							</div>
+					<h3>Anton</h3>
+				</li>
+				<li>
+					<div class="avatar">
+						<img src="./images/user02.png">
+					</div>
+					<h3>Anton</h3>
+				</li>
+			</ul>
+		</div>
+		
+	</div>	
+	<div class="modal-sign" id="sign-modal">
+		<div class="close">X</div>
+		<div id="form-sign">
+			<h1>Авторизація</h1>
+			<p><b>Email</b></p>
+			<textarea class="email"> </textarea>
+			<p><b>Password</b></p>
+			<textarea class="password"> </textarea>
+			<button><b>Увійти</b></button>
+		</div>
+		
+	</div>
+	<script src="./js/listUserAndMessage.js"></script>
+	<script src="./js/main.js"></script>
+</body>
+</html>
+

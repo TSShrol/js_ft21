@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Task</title>
+</head>
+<body>
+    <form method="GET" action="">
+        <b>Name</b>
+        <input type="text" placeholder="Enter name" name="name"  >
+        <br>
+        <b>Email</b>
+        <input type="email" placeholder="Enter name" name="email">
+        <br>
+        <input type="submit" value="Save">
+        <input type="button" value="One more">
+        <br>
+        Task
+        <input type="text" name="task" id="" placeholder="Input task">
+        Task type
+        <select name="type">
+            <option value="1" selected>short</option>
+            <option value="2">long</option>
+            <option value="3">more long</option>
+
+        </select>
+        Priotitet
+        <input type="radio" name="main" value="1" checked>
+
+
+    </form>
+    <script>
+        console.dir(document.forms[0]);
+        // document.forms[0].submit();
+        // document.forms[0].reset();
+        let form1= document.forms[0];
+        let inputEmail=form1.elements['email'];
+        // inputEmail.focus();
+        console.dir(inputEmail);
+        console.log(inputEmail.form);
+
+    </script>
+</body>
+</html>

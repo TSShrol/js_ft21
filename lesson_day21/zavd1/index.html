@@ -29,6 +29,7 @@
             top:50%;
             transform: translateY(-50%);
             left: 15px;
+            /* cursor:pointer; */
         }
     </style>
 
@@ -54,14 +55,14 @@
 
         //     function onMouseMove(event){
         //         // let newMoveLeft=event.clientX-shiftX-povzunok.offsetLeft;
-        //         let newMoveLeft=event.clientX-shiftX-povzunok.getClientRects()[0].left;
+        //         let newMoveLeft=event.clientX-shiftX-slider.getClientRects()[0].left;
 
         //         // console.log(newMoveLeft);
         //         if (newMoveLeft<0){
         //             newMoveLeft=0;
         //         }
                 
-        //         let rightMove=slider.offsetWidth-povzunok.offsetWidth
+        //         let rightMove=slider.offsetWidth-povzunok.offsetWidth;
         //         if(newMoveLeft>rightMove){
         //             newMoveLeft=rightMove;
         //         }
@@ -70,31 +71,36 @@
         //     }
 
         //     function onMouseUp(){
-        //         document.removeEventListener('mousemove',onMouseMove);
         //         document.removeEventListener('mouseup',onMouseUp);
+        //         document.removeEventListener('mousemove',onMouseMove);
+               
         //     }
 
-        //     slider.ondragstart=function(){
+        //     povzunok.ondragstart=function(){
         //         return false;
         //     }
         // }
 
         povzunok.onmousedown=function(event){
             event.preventDefault();
-            console.log(povzunok.getClientRects()[0].left);
+            // console.log(povzunok.getClientRects()[0].left);
             let shiftX=event.clientX-povzunok.getClientRects()[0].left;
-            console.log(shiftX);
+            // console.log(shiftX);
             document.addEventListener('mousemove',onMouseMove);
             // document.addEventListener('mouseup',onMouseUp);
 
             function onMouseMove(e){
                 // let newMoveLeft=event.clientX-shiftX-povzunok.offsetLeft;
-                let newMoveLeft=e.clientX-shiftX-povzunok.getClientRects()[0].left;
-                // console.log(newMoveLeft);
+                let newMoveLeft=e.clientX-shiftX-slider.getBoundingClientRect.left;
+                console.log("info:")
+                console.log(e.clientX);
+                console.log(shiftX);
+                console.log(slider.getClientRects()[0].left);
+                console.log(slider.offsetLeft);
                 if (newMoveLeft<0){
                     newMoveLeft=0;
                 }
-                let rightMove=slider.offsetWidth-povzunok.offsetWidth
+                let rightMove=slider.offsetWidth-povzunok.offsetWidth;
                 if(newMoveLeft>rightMove){
                     newMoveLeft=rightMove;
                 }
