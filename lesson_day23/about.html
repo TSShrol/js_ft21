@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About user</title>
+</head>
+<body>
+
+
+    <script>
+    // document.write(document.cookie);
+    let cookies=document.cookie.split(";") ;
+    let p= document.createElement('p'); 
+    for(let i=0; i<cookies.length; i++){
+        console.log(cookies[i]);
+        let key_value=cookies[i].split("="), 
+            key=key_value[0],
+            value=key_value[1];
+            p.innerHTML+=key+" => " +value+"<br>";
+    }
+    let body=document.querySelector("body");
+    body.append(p);
+    p.innerHTML+="<hr>localStorage: "+ localStorage.getItem("email");
+    p.innerHTML+="<hr>sessionStorage: "+ sessionStorage.getItem("lastName");
+    console.log(document.baseURI);
+    let userResponse=localStorage.getItem("user")
+    console.log(userResponse);
+    console.log(JSON.parse(userResponse));
+
+
+    
+    
+    </script>
+</body>
+</html>
