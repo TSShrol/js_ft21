@@ -15,6 +15,7 @@
 // } else {
 // // вивести результат
 // alert (xhr.responseText); // responseText - текст відповіді.
+ // console.log(JSON.parse(xhr.responseText));
 // }
 
 
@@ -34,7 +35,6 @@ xhr.onreadystatechange = function () {   // (3)
     } else {
         //text, JSON, BLOB ARRAYBUFFER , document (XML), "JSON" => responseType
         alert(xhr.responseText);
-        // console.log(JSON.parse(xhr.responseText));
     }
 
 }
