@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+   
+}
+.wrapper {
+    margin: auto;
+    width: 90vw;
+    height: 80vh;
+    
+}
+.wrapper__title {
+    display: flex;
+    justify-content: center;
+}
+.wrapper__title>span{
+    width: 50%;
+    padding-bottom: 10px;
+    text-align: center;
+}
+.wrapper__content{
+   
+    height: 100%;
+}
+.wrapper__content #formatter {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+#enterJSON,
+#formatJSON{
+    resize:none;
+  
+    width: 46%;
+    height: 100%;
+}
+#btnFormat{
+    height: 100%;
+}
+/* .btnBlock{
+
+    height: 100%;
+} */

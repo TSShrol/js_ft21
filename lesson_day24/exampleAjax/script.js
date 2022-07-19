@@ -1,7 +1,7 @@
 // // 1. Створюємо новий об'єкт XMLHttpRequest (ActiveXobject)
 // let xhr = new XMLHttpRequest();
 
-// // 2. Конфігуріруем його: GET-запит на URL 'phones.json' async
+// // 2. Конфігуруем його: GET-запит на URL 'phones.json' async
 // xhr.open( 'GET', 'phones.json', false);
 
 // // 3. Відсилаємо запит
@@ -33,7 +33,7 @@ xhr.onreadystatechange = function () {   // (3)
     if (xhr.status != 200) {
         alert(xhr.status + ':' + xhr.statusText);
     } else {
-        //text, JSON, BLOB ARRAYBUFFER , document (XML), "JSON" => responseType
+        //text, JSON, BLOB,ARRAYBUFFER , document (XML), "JSON" => responseType
         alert(xhr.responseText);
     }
 
