@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+// Fluent Interface   ( fluent API)
+/*
+api.js
+
+export default function () {
+ this.method1 = () => {
+  // do stuff
+  return this;
+ }
+ this.method2 = () => {
+  // do stuff
+  return this;
+ }
+ // more methods
+}
+
+You can now use this object like:
+
+import api from "./api.js"; 
+const obj = new api(); 
+obj
+  .method1()
+  .method2() 
+  .methodX();
+*/
+// https://medium.com/@anthonygore/chain-your-javascript-methods-like-a-boss-with-fluent-apis-e5faf1d3ce5
+//  https://dev.to/nas5w/using-the-fluent-interface-pattern-to-create-javascript-objects-2p1n
+class PersonBuilder {
+
+  constructor() {
+    this.person = {};
+    // this.data=new Date();
+  }
+  withName(name) {
+    this.person.name = name;
+    return this;
+  }
+  withAge(age) {
+    this.person.age = age;
+    return this;
+  }
+  build() {
+    return this.person;
+  }
+}
+
+const person = new PersonBuilder()
+  .withName("Daffodil")
+  .withAge(25)
+  .build();
+console.log(person);
+// { name: "Daffodil", age: 25 }
+    
+class Element{
+    constructor(){
+        this.element={}
+    }
+    setId(id){
+        this.element.id=id
+    }
+    addClass(cssClass){
+        this.element.cssClass=cssClass
+    }
+    setContent(text){
+        this.element.text=text;
+    }
+    // ...
+}
+
+class DomBuilder{
+    constructor(){
+        this.element={}
+    }
+    setId(id){
+
+    }
+    // 
+}
+    </script>
+</body>
+</html>

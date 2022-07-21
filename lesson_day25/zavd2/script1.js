@@ -55,6 +55,8 @@ $(function () {
                 // код, який спрацює у разі успішного
                 // надсилання форми на сервер
                 console.dir(data);
+                console.log(typeof data);
+                addUsers(data);
              
             },
             error: function () {
@@ -75,6 +77,7 @@ function addUsers(json) {
     //     btnUser.addEventListener("click", infoSelectUsers);
     //     sectionUsers.append(btnUser);
     // }
+    console.dir(json);
     let sectionUsers = $(".users");
     for (const user of json) {
         let btnUser = $("<input/>");
@@ -91,17 +94,27 @@ function addUsers(json) {
 }
 
 function infoSelectUsers() {
-    fetch('https://jsonplaceholder.typicode.com/users?id=' + this.name)
+    fetch('https://jsonplaceholder.typicode.com/user?id=' + this.name)
         .then(response => response.json())
         .then(user => {
             console.log(user);
             addInfoUser(user);
-        })
+        }).catch(errer=>console.error("erorr!!!"))
 }
 //table info
 function addInfoUser(user){
     let sectionInfoUser=document.querySelector(".infoUser");
+    console.dir(sectionInfoUser);
     sectionInfoUser.innerHTML="<h2> INFO USER </h2>"+JSON.stringify(user);
+    let btnShowPosts=$("<input/>");
+    btnShowPosts.attr("type","button");
+    btnShowPosts.attr("data-id","id");
+    btnShowPosts.attr("value","Show posts");
+    console.dir(btnShowPosts);
+    btnShowPosts.bind("click", infoUsersPosts);
+    // sectionUsers.append(btnUser);
+    // sectionInfoUser.append(btnShowPosts);
+    $(".infoUser").append(btnShowPosts);
 
 }
 
@@ -111,3 +124,24 @@ $(function(){
     console.dir();
     // $(".userPost").append($("<h2/>")).html("TEXT");
 });
+
+function infoUsersPosts(){
+    fetch('https://jsonplaceholder.typicode.com/posts')
+        .then(response => response.json())
+        .then(posts => {
+            console.log(posts.userId);
+            addInfoUserPosts(posts);
+        })
+    }
+
+function addInfoUserPosts(posts) {
+    let usersPosts=new WeakSet(); //user and his posts
+    posts.forEach(post => {
+        usersPosts.set(this,posts);
+    });
+
+   
+    console.dir(usersPosts);
+    $(".usersPost").append($('<p><p/>').text(JSON.stringify(posts)));
+}
+
