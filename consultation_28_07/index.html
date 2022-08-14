@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- додаємо css стилі для mocha, щоб вивести результати -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+  <!-- додаємо фреймворк mocha до коду -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+  <script>
+    mocha.setup('bdd'); // вмикаємо тестування у bdd стилі
+  </script>
+  <!-- додаємо chai -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+  <script>
+    // chai має багато всього, давайте зробимо assert глобальним
+    let assert = chai.assert;
+    let expect=chai.expect;
+  </script>
+</head>
+<body>
+    <script src="script.js">
+
+        
+    </script>
+    <script src="test.js"></script>
+     <!-- елемент з id="mocha" буде містити результати тестів -->
+  <div id="mocha"></div>
+
+  <!-- запускаємо тести! -->
+  <script>
+    mocha.run();
+  </script>
+</body>
+</html>
